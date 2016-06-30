@@ -1,0 +1,131 @@
+.movielist {
+  display: flex;
+  list-style: none;
+  margin: 0 1em;
+  padding: 0;
+  padding-top: 2em;
+  transition: .3s;
+
+  @media screen and (max-width: 700px) {
+    flex-direction: column;
+    padding-top: 1em;
+  }
+}
+
+.movie {
+  width: 20em;
+  margin: 0 .5em;
+  padding: 1em;
+  border: 1px solid lightgray;
+  transition: .3s;
+  cursor: pointer;
+  position: relative;
+
+  @media screen and (max-width: 700px) {
+    margin: 1em .5em;
+  }
+
+  h2 {
+    font-size: 1.2rem;
+    padding-bottom: 1em;
+  }
+
+  .watchNow, .rateNow, .doneRating {
+    border: none;
+    padding: 1em;
+    width: 100%;
+    font-size: 14px;
+    cursor: pointer;
+    font-weight: 400;
+    outline: none;
+    transition: .3s;
+  }
+
+  .watchNow {
+    background-color: lightgreen;
+
+    &:hover {
+      background-color: lighten(lightgreen, 5%);
+    }
+  }
+
+  .doneRating {
+    background-color: #eee;
+  }
+
+  .rateNow {
+    background-color: $salmon;
+
+    &:hover {
+     background-color: lighten($salmon, 5%);
+    }
+  }
+
+  .movie-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .stars {
+    display: flex;
+    padding-bottom: .75em;
+
+    p {
+      font-size: 10px;
+      color: #bbb;
+    }
+
+    i {
+      padding: 0 .2em;
+      color: $yellow;
+    }
+  }
+
+  .footer {
+    position: relative;
+    width: 100%;
+  }
+
+  .rateMovie {
+    position: absolute;
+    background-color: white;
+    width: 100%;
+    top: -5px;
+    left: 0;
+    height: 50px;
+    opacity: 0;
+    z-index: -1;
+    outline: none;
+
+    ul {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1em 2em;
+
+      li {
+        &.selected {
+
+          .empty-star {
+            color: $yellow;
+          }
+        }
+      }
+
+      .empty-star {
+        font-size: 25px;
+        color: lightgray;
+
+        &:hover {
+          color: $yellow;
+        }
+      }
+    }
+
+    &.show {
+      z-index: 3;
+      opacity: 1;
+    }
+  }
+}
